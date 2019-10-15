@@ -35,14 +35,14 @@ Make sure you have Git installed on your computer - [https://git-scm.com/downloa
 4.  In Command Line/Terminal Navigate to the CodingChallenge2019 folder on your Desktop by typing in –  
  `$ cd Desktop/CodingChallenge2019`
 5. Once you’re in the folder clone your GitHub repository by executing the following command –  
- `$ git clone <insert link of your GitHub here, without the brackets>`
+ `$ git clone <insert link of your GitHub Repository here, without the brackets>`
 6. You should now have the repository checked out locally.
 7. Using the IDE (e.g. IntelliJ/Eclipse) of your choice, open up your local repository and make changes to the answer files.
  
 **How to commit and push your changes to GitHub for it to be evaluated:**
  
 1. Open up Command Line/Terminal and navigate to your repository by executing this command –  
-`$ cd Desktop/CodingChallenge2019/<YourRepository without the brackets>`
+`$ cd Desktop/CodingChallenge2019/<Your Repository without the brackets>`
 2.  Check all the files that you have changed -  
 `$ git status`
 3. Marks the files that you have changed ready to be committed and pushed -  
