@@ -29,7 +29,7 @@ class Test(unittest.TestCase):
             try:
                 return_dict = Manager().dict()
                 test = tests[testnumber]
-                q1input = test["input"]
+                q1input = json.loads(test["input"].replace(" ", ""))
                 p = Process(target=runq1, args=(q1input, return_dict))
                 p.start()
 
@@ -82,7 +82,7 @@ class Test(unittest.TestCase):
             try:
                 return_dict = Manager().dict()
                 test = tests[testnumber]
-                q2input = test["input"]
+                q2input = json.loads(test["input"].replace(" ", ""))
                 p = Process(target=runq2, args=(q2input, return_dict))
                 p.start()
 
@@ -134,7 +134,7 @@ class Test(unittest.TestCase):
             try:
                 return_dict = Manager().dict()
                 test = tests[testnumber]
-                q3input = test["input"]
+                q3input = json.loads(test["input"].replace(" ", ""))
                 p = Process(target=runq3, args=(q3input, return_dict))
                 p.start()
 
@@ -186,7 +186,7 @@ class Test(unittest.TestCase):
             try:
                 return_dict = Manager().dict()
                 test = tests[testnumber]
-                q4input = test["input"]
+                q4input = json.loads(test["input"].replace(" ", ""))
                 p = Process(target=runq4, args=(q4input, return_dict))
                 p.start()
 
@@ -239,8 +239,8 @@ class Test(unittest.TestCase):
             try:
                 return_dict = Manager().dict()
                 test = tests[testnumber]
-                q6input = test["input"]
-                p = Process(target=runq5, args=(q6input, return_dict))
+                q5input = json.loads(test["input"].replace(" ", ""))
+                p = Process(target=runq5, args=(q5input, return_dict))
                 p.start()
 
                 # Wait for 1 seconds or until process finishes
@@ -334,9 +334,8 @@ class Test(unittest.TestCase):
 
 
 # DO NOT CHANGE THIS FUNCTION EITHER
-def runq1(q1input, return_dict):
+def runq1(i, return_dict):
     start = clock()
-    i = json.loads(q1input.replace(" ", ""))
     output = question01(i['initialLevelOfDebt'], i['interestPercentage'], i['repaymentPercentage'])
     end = clock()
     diff = end - start
@@ -345,9 +344,8 @@ def runq1(q1input, return_dict):
 
 
 # DO NOT CHANGE THIS FUNCTION EITHER
-def runq2(q2input, return_dict):
+def runq2(i, return_dict):
     start = clock()
-    i = json.loads(q2input.replace(" ", ""))
     output = question02(i['risk'], i['bonus'], i['trader'])
     end = clock()
     diff = end - start
@@ -356,9 +354,8 @@ def runq2(q2input, return_dict):
 
 
 # DO NOT CHANGE THIS FUNCTION EITHER
-def runq3(q3input, return_dict):
+def runq3(i, return_dict):
     start = clock()
-    i = json.loads(q3input.replace(" ", ""))
     output = question03(i['scores'], i['alice'])
     end = clock()
     diff = end - start
@@ -367,9 +364,8 @@ def runq3(q3input, return_dict):
 
 
 # DO NOT CHANGE THIS FUNCTION EITHER
-def runq4(q4input, return_dict):
+def runq4(i, return_dict):
     start = clock()
-    i = json.loads(q4input.replace(" ", ""))
     output = question04(i['v'], i['c'], i['mc'])
     end = clock()
     diff = end - start
@@ -378,9 +374,8 @@ def runq4(q4input, return_dict):
 
 
 # DO NOT CHANGE THIS FUNCTION EITHER
-def runq5(q5input, return_dict):
+def runq5(i, return_dict):
     start = clock()
-    i = json.loads(q5input.replace(" ", ""))
     output = question05(i)
     end = clock()
     diff = end - start
@@ -389,10 +384,9 @@ def runq5(q5input, return_dict):
 
 
 # DO NOT CHANGE THIS FUNCTION EITHER
-def runq6(q6input, return_dict):
+def runq6(i, return_dict):
     start = clock()
-    # i = json.loads(q6input)
-    output = question06(q6input)
+    output = question06(i)
     end = clock()
     diff = end - start
     return_dict['output'] = output
