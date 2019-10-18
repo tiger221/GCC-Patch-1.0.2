@@ -27,6 +27,7 @@ describe('Coding Challenge Skeleton Tests', () => {
                                 runtest(test)
                                     .timeout(1000)
                                     .then(({answer, timeTaken}) => {
+                                        const correct = answer === test["output"] ? "CORRECT" : "INCORRECT"
                                         console.log(test.input + " is " + correct)
                                         output.push({
                                             "questionNumber": 1,
@@ -72,7 +73,7 @@ describe('Coding Challenge Skeleton Tests', () => {
                                     runtest(test)
                                         .timeout(1000)
                                         .then(({answer, timeTaken}) => {
-                                            const correct = answer === test["output"] ? "CORRECT" : "INCORRECT" ? "CORRECT" : "INCORRECT"
+                                            const correct = answer === test["output"] ? "CORRECT" : "INCORRECT"
                                             resolve({
                                                 "questionNumber": 2,
                                                 "testNumber": i,
